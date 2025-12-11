@@ -132,11 +132,17 @@ void UDiscordRpc::UpdatePresence()
     auto largeImageText = StringCast<ANSICHAR>(*RichPresence.largeImageText);
     rp.largeImageText = largeImageText.Get();
 
+    auto largeImageURL = StringCast<ANSICHAR>(*RichPresence.largeImageURL);
+    rp.largeImageURL = largeImageURL.Get();
+
     auto smallImageKey = StringCast<ANSICHAR>(*RichPresence.smallImageKey);
     rp.smallImageKey = smallImageKey.Get();
 
     auto smallImageText = StringCast<ANSICHAR>(*RichPresence.smallImageText);
     rp.smallImageText = smallImageText.Get();
+
+    auto smallImageURL = StringCast<ANSICHAR>(*RichPresence.smallImageURL);
+    rp.smallImageURL = smallImageURL.Get();
 
     auto partyId = StringCast<ANSICHAR>(*RichPresence.partyId);
     rp.partyId = partyId.Get();

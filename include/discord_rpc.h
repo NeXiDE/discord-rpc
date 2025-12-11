@@ -24,14 +24,17 @@ extern "C" {
 #endif
 
 typedef struct DiscordRichPresence {
+    int type;
     const char* state;   /* max 128 bytes */
     const char* details; /* max 128 bytes */
     int64_t startTimestamp;
     int64_t endTimestamp;
     const char* largeImageKey;  /* max 32 bytes */
     const char* largeImageText; /* max 128 bytes */
+    const char* largeImageURL;  /* max ? bytes */
     const char* smallImageKey;  /* max 32 bytes */
     const char* smallImageText; /* max 128 bytes */
+    const char* smallImageURL;  /* max ? bytes */
     const char* partyId;        /* max 128 bytes */
     int partySize;
     int partyMax;
@@ -39,10 +42,10 @@ typedef struct DiscordRichPresence {
     const char* matchSecret;    /* max 128 bytes */
     const char* joinSecret;     /* max 128 bytes */
     const char* spectateSecret; /* max 128 bytes */
-    const char* button1Label; /* max 32 bytes */
-    const char* button1Url;   /* max 512 bytes */
-    const char* button2Label; /* max 32 bytes */
-    const char* button2Url;   /* max 512 bytes */
+    const char* button1Label;   /* max 32 bytes */
+    const char* button1Url;     /* max 512 bytes */
+    const char* button2Label;   /* max 32 bytes */
+    const char* button2Url;     /* max 512 bytes */
     int8_t instance;
 } DiscordRichPresence;
 

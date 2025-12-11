@@ -1047,14 +1047,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   presence:
+    type: 
     state: Button clicking
     details: Best game ever
     startTimestamp: 0
     endTimestamp: 0
     largeImageKey: stable-large
     largeImageText: 
+    largeImageURL: 
     smallImageKey: canary-small
     smallImageText: 
+    smallImageURL: 
     partyId: abcdefg
     partySize: 1
     partyMax: 10

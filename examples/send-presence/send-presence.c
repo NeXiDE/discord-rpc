@@ -39,20 +39,21 @@ static void updateDiscordPresence()
         memset(&discordPresence, 0, sizeof(discordPresence));
         discordPresence.state = "West of House";
         sprintf(buffer, "Frustration level: %d", FrustrationLevel);
+        discordPresence.type = 0;
         discordPresence.details = buffer;
         discordPresence.startTimestamp = StartTime;
         discordPresence.endTimestamp = time(0) + 5 * 60;
         discordPresence.largeImageKey = "canary-large";
         discordPresence.smallImageKey = "ptb-small";
         // TEMP DISABLE (Join and Spectate)
-        //discordPresence.partyId = "party1234";
-        //discordPresence.partySize = 1;
-        //discordPresence.partyMax = 6;
-        //discordPresence.partyPrivacy = DISCORD_PARTY_PUBLIC;
-        //discordPresence.matchSecret = "xyzzy";
-        //discordPresence.joinSecret = "join";
-        //discordPresence.spectateSecret = "look";
-        //discordPresence.instance = 0;
+        // discordPresence.partyId = "party1234";
+        // discordPresence.partySize = 1;
+        // discordPresence.partyMax = 6;
+        // discordPresence.partyPrivacy = DISCORD_PARTY_PUBLIC;
+        // discordPresence.matchSecret = "xyzzy";
+        // discordPresence.joinSecret = "join";
+        // discordPresence.spectateSecret = "look";
+        // discordPresence.instance = 0;
         // EXAMPLE BUTTONS
         discordPresence.button1Label = "Example 1 button";
         discordPresence.button1Url = "https://example.com";

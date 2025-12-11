@@ -64,6 +64,8 @@ struct FDiscordRichPresence {
     GENERATED_USTRUCT_BODY()
 
     UPROPERTY(BlueprintReadWrite)
+    int type;
+    UPROPERTY(BlueprintReadWrite)
     FString state;
     UPROPERTY(BlueprintReadWrite)
     FString details;
@@ -77,9 +79,13 @@ struct FDiscordRichPresence {
     UPROPERTY(BlueprintReadWrite)
     FString largeImageText;
     UPROPERTY(BlueprintReadWrite)
+    FString largeImageURL;
+    UPROPERTY(BlueprintReadWrite)
     FString smallImageKey;
     UPROPERTY(BlueprintReadWrite)
     FString smallImageText;
+    UPROPERTY(BlueprintReadWrite)
+    FString smallImageURL;
     UPROPERTY(BlueprintReadWrite)
     FString partyId;
     UPROPERTY(BlueprintReadWrite)

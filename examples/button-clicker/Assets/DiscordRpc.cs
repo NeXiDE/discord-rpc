@@ -45,14 +45,17 @@ public class DiscordRpc
     [Serializable, StructLayout(LayoutKind.Sequential)]
     public struct RichPresenceStruct
     {
+        public IntPtr type;
         public IntPtr state; /* max 128 bytes */
         public IntPtr details; /* max 128 bytes */
         public long startTimestamp;
         public long endTimestamp;
         public IntPtr largeImageKey; /* max 32 bytes */
         public IntPtr largeImageText; /* max 128 bytes */
+        public IntPtr largeImageURL; /* max ? bytes */
         public IntPtr smallImageKey; /* max 32 bytes */
         public IntPtr smallImageText; /* max 128 bytes */
+        public IntPtr smallImageURL; /* max ? bytes */
         public IntPtr partyId; /* max 128 bytes */
         public int partySize;
         public int partyMax;
@@ -161,14 +164,17 @@ public class DiscordRpc
                 FreeMem();
             }
 
+            _presence.type = StrToPtr(state);
             _presence.state = StrToPtr(state);
             _presence.details = StrToPtr(details);
             _presence.startTimestamp = startTimestamp;
             _presence.endTimestamp = endTimestamp;
             _presence.largeImageKey = StrToPtr(largeImageKey);
             _presence.largeImageText = StrToPtr(largeImageText);
+            _presence.largeImageURL = StrToPtr(largeImageURL);
             _presence.smallImageKey = StrToPtr(smallImageKey);
             _presence.smallImageText = StrToPtr(smallImageText);
+            _presence.smallImageURL = StrToPtr(smallImageURL);
             _presence.partyId = StrToPtr(partyId);
             _presence.partySize = partySize;
             _presence.partyMax = partyMax;

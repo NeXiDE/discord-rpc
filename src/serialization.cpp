@@ -105,6 +105,11 @@ size_t JsonWriteRichPresenceObj(char* dest,
             if (presence != nullptr) {
                 WriteObject activity(writer, "activity");
 
+                if (presence->type) {
+                    WriteKey(writer, "type");
+                    writer.Int(presence->type);
+                }
+
                 WriteOptionalString(writer, "state", presence->state);
                 WriteOptionalString(writer, "details", presence->details);
 
@@ -124,13 +129,17 @@ size_t JsonWriteRichPresenceObj(char* dest,
 
                 if ((presence->largeImageKey && presence->largeImageKey[0]) ||
                     (presence->largeImageText && presence->largeImageText[0]) ||
+                    (presence->largeImageURL && presence->largeImageURL[0]) ||
                     (presence->smallImageKey && presence->smallImageKey[0]) ||
-                    (presence->smallImageText && presence->smallImageText[0])) {
+                    (presence->smallImageText && presence->smallImageText[0]) ||
+                    (presence->smallImageURL && presence->smallImageURL[0])) {
                     WriteObject assets(writer, "assets");
                     WriteOptionalString(writer, "large_image", presence->largeImageKey);
                     WriteOptionalString(writer, "large_text", presence->largeImageText);
+                    WriteOptionalString(writer, "large_url", presence->largeImageURL);
                     WriteOptionalString(writer, "small_image", presence->smallImageKey);
                     WriteOptionalString(writer, "small_text", presence->smallImageText);
+                    WriteOptionalString(writer, "small_url", presence->smallImageURL);
                 }
 
                 if ((presence->partyId && presence->partyId[0]) || presence->partySize ||
@@ -157,7 +166,7 @@ size_t JsonWriteRichPresenceObj(char* dest,
                     WriteOptionalString(writer, "join", presence->joinSecret);
                     WriteOptionalString(writer, "spectate", presence->spectateSecret);
                 }
-                
+
                 // Add Custom buttons and links (2 Buttons)
                 if (((presence->button1Label && presence->button1Label[0]) &&
                      (presence->button1Url && presence->button1Url[0])) ||
@@ -183,7 +192,7 @@ size_t JsonWriteRichPresenceObj(char* dest,
                         writer.String(presence->button2Url);
                     }
                 }
-                
+
                 writer.Key("instance");
                 writer.Bool(presence->instance != 0);
             }
